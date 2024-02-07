@@ -12,14 +12,10 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/ducks")
 public class DucksController {
-    private DucksRepository ducksRepository;
-    public DucksController(DucksRepository ducksRepository){
-        this.ducksRepository = ducksRepository;
-    }
     @PostMapping("/ducks/{id}/image")
     public boolean uploadImage(@PathVariable int id, @RequestParam MultipartFile file){
         try {
-            return ducksRepository.uploadImage(id,file);
+            return DucksRepository.uploadImage(id,file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -28,7 +24,7 @@ public class DucksController {
     public ResponseEntity<?> getImage(@PathVariable int id){
         byte[] image = new byte[0];
         try {
-            image = ducksRepository.downloadImage(id);
+            image = DucksRepository.downloadImage(id);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

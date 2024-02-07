@@ -1,6 +1,8 @@
 package edu.iu.lvanjelg.ducksservice.models;
 
 public class Duck {
+    FlyBehavior flyBehavior;
+    QuackBehavior quackBehavior;
     private static int id;
     private static type duck;
     public static enum type{
@@ -29,5 +31,23 @@ public class Duck {
 
     public void setDuckType(type duck) {
         this.duck = duck;
+    }
+    public FlyBehavior getFlyBehavior() {
+        return flyBehavior;
+    }
+
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+
+    public QuackBehavior getQuackBehavior() {
+        return quackBehavior;
+    }
+
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
+    }
+    public String toString(){
+        return String.format("%1$s,%2$s", getId(), getDuckType());
     }
 }
