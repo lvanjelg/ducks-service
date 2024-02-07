@@ -1,4 +1,4 @@
-package models;
+package edu.iu.lvanjelg.ducksservice.models;
 
 public class Duck {
     public static int id;
