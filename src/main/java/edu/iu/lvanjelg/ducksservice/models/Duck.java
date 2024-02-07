@@ -1,8 +1,8 @@
 package edu.iu.lvanjelg.ducksservice.models;
 
 public class Duck {
-    public static int id;
-    public static type duck;
+    private static int id;
+    private static type duck;
     public static enum type{
         MALLARD, REDHEAD, RUBBER_DUCK, DECOY_DUCK;
         public String toString() {
@@ -15,19 +15,19 @@ public class Duck {
             }
         }
     }
-    public static int getId() {
-        return id;
+    public int getId() {
+        return this.id;
     }
 
-    public static void setId(int id) {
-        Duck.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public static type getDuck() {
-        return duck;
+    public type getDuckType() {
+        return this.duck;
     }
 
-    public static void setDuck(type duck) {
-        Duck.duck = duck;
+    public void setDuckType(type duck) {
+        this.duck = duck;
     }
 }

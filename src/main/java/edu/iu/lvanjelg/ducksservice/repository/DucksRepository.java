@@ -6,17 +6,16 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DucksRepository {
-    private static ArrayList<Duck> ducks = new ArrayList<>();
-    public static boolean addDuck(){
-        Duck d = new Duck();
-        d.setId(1);
-        d.setDuck(Duck.type.MALLARD);
+    public static ArrayList<Duck> ducks = new ArrayList<>();
+    public static boolean addDuck(Duck d){
         ducks.add(d);
         return true;
     }
     public static Duck getDuck(int id){
         for(int i = 0; i < ducks.size(); i++){
-            if(ducks.get(i).getId() == id){
+            if(ducks.get(i) == null){
+                return null;
+            }else if(ducks.get(i).getId() == id){
                 return ducks.get(i);
             }
         }
@@ -25,24 +24,25 @@ public class DucksRepository {
     public static ArrayList<Duck> getAllDuck(){
         return ducks;
     }
-    public static Duck search(Duck.type t){
+    public static ArrayList<Duck> search(Duck.type t){
+        ArrayList<Duck> dList = new ArrayList<>();
         for(int i = 0; i < ducks.size(); i++){
-            if(ducks.get(i).getDuck() == t){
-                return ducks.get(i);
+            if(ducks.get(i).getDuckType() == t){
+                dList.add(ducks.get(i));
             }
         }
-        return null;
+        return dList;
     }
     public static boolean uploadImage(){
         return true;
     }
     public static String downloadImage(){
-
+        return "";
     }
     public static boolean uploadAudio(){
         return true;
     }
     public static String downloadAudio(){
-
+        return "";
     }
 }
